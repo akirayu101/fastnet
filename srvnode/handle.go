@@ -1,10 +1,10 @@
 package srvnode
 
 import (
-	"../message"
-	"../packet"
 	"errors"
 	"fmt"
+	"github.com/akirayu101/fastnet/message"
+	"github.com/akirayu101/fastnet/packet"
 	"log"
 )
 

@@ -1,9 +1,9 @@
 package srvnode
 
 import (
-	"../model"
 	"errors"
 	"fmt"
+	"github.com/akirayu101/fastnet/model"
 	"log"
 )
 

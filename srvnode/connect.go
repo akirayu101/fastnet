@@ -1,9 +1,9 @@
 package srvnode
 
 import (
-	"../model"
-	"../packet"
 	"encoding/binary"
+	"github.com/akirayu101/fastnet/model"
+	"github.com/akirayu101/fastnet/packet"
 	"hash/crc32"
 	"io"
 	"log"

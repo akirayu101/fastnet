@@ -1,7 +1,7 @@
 package msgpack
 
 import (
-	"../packet"
+	"github.com/akirayu101/fastnet/packet"
 	"github.com/ugorji/go/codec"
 )
 
