@@ -1,0 +1,4 @@
+package fastnet
+
+func main(){
+}
