@@ -1,4 +1,4 @@
-package fastnet
+package main
 
 func main(){
 }
