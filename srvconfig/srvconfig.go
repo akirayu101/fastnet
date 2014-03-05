@@ -16,7 +16,7 @@ type ServerConfig struct {
 type ClientConfig struct {
 	Name     string
 	ServAddr string
-	msgids   map[int32]bool
+	Msgids   map[int32]bool
 }
 
 type ClientConfigs []ClientConfig
@@ -53,16 +53,16 @@ func ParseConfig(config_path string) (conf Config, err error) {
 
 		response_apis := strings.Fields(response_api_str)
 		noresponse_apis := strings.Fields(noresponse_api_str)
-		CS.msgids = make(map[int32]bool)
+		CS.Msgids = make(map[int32]bool)
 
 		for _, v := range response_apis {
 			api_id, _ := strconv.Atoi(v)
-			CS.msgids[int32(api_id)] = true
+			CS.Msgids[int32(api_id)] = true
 		}
 
 		for _, v := range noresponse_apis {
 			api_id, _ := strconv.Atoi(v)
-			CS.msgids[int32(api_id)] = false
+			CS.Msgids[int32(api_id)] = false
 		}
 
 		conf.CCS = append(conf.CCS, CS)
