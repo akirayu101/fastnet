@@ -36,6 +36,18 @@ func NewClient(name string, servaddr string, serve_msgids map[int32]bool) *Clien
 	return client
 }
 
+func (c *Client) RegisteClientApi() {
+	for k, v := range c.serve_msgids {
+		if v {
+			MainHandle.RegisterRemoteService(c.Name, k, c.RemoteCall)
+		} else {
+			//TODO
+		}
+
+	}
+
+}
+
 func (c *Client) Connect() (err error) {
 	log.Println("srvnode to ", c.Name)
 	addr, err := net.ResolveTCPAddr("tcp", c.ServAddr)
