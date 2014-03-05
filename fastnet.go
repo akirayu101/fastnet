@@ -30,7 +30,31 @@ func NewFastNet(configfile string) (fs *FastNet) {
 		fs.Clients = append(fs.Clients, client)
 
 	}
-
 	return
+}
+
+func (fs *FastNet) RegisteLocalService(name string, msgid int32, run srvnode.LocalFunc) {
+	fs.Handle.RegisterLocalService(name, msgid, run)
+}
+
+func (fs *FastNet) StartClient() {
+	for _, cli := range fs.Clients {
+		err := cli.Connect()
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		cli.RegisteClientApi()
+
+	}
+}
+
+func (fs *FastNet) StartServer() {
+	fs.Server.Start()
+}
+
+func (fs *FastNet) Start() {
+	fs.StartClient()
+	fs.StartServer()
 
 }
