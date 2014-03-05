@@ -3,11 +3,11 @@ package srvnode
 import (
 	"errors"
 	"fmt"
-	"github.com/akirayu101/fastnet/model"
+	"github.com/akirayu101/fastnet/types"
 	"log"
 )
 
-type LocalFunc func(*model.UserInfo, []byte) ([]byte, error)
+type LocalFunc func(*types.UserInfo, []byte) ([]byte, error)
 
 type localservice struct {
 	Name string

@@ -2,8 +2,8 @@ package srvnode
 
 import (
 	"encoding/binary"
-	"github.com/akirayu101/fastnet/model"
 	"github.com/akirayu101/fastnet/packet"
+	"github.com/akirayu101/fastnet/types"
 	"hash/crc32"
 	"io"
 	"log"
@@ -24,7 +24,7 @@ type Connect struct {
 	serv *Server
 
 	//session related
-	User    *model.UserInfo
+	User    *types.UserInfo
 	IP      net.IP
 	KickOut bool
 	MQ      chan []byte
@@ -51,7 +51,7 @@ func NewConnect(conn net.Conn, s *Server) *Connect {
 	connect.LastFlushTime = time.Now().Unix()
 	connect.OpCount = 0
 	connect.serv = s
-	connect.User = new(model.UserInfo)
+	connect.User = new(types.UserInfo)
 	return connect
 
 }
